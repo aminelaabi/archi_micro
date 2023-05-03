@@ -1,0 +1,4 @@
+from .user_controller_get_user import UserControllerGetUserType
+
+
+UserControllerGetCurrentActiveUserType = UserControllerGetUserType
