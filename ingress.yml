@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: projet-archi
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /adminer
+        pathType: Prefix
+        backend:
+          service:
+            name: adminer
+            port:
+              name: http
+        replicas: 2
+      - path: /blur-image
+        pathType: Prefix
+        backend:
+          service:
+            name: blur-image
+            port:
+              name: http
+        replicas: 3
+      - path: /postgres
+        pathType: Prefix
+        backend:
+          service:
+            name: db
+            port:
+              name: postgresql
+        replicas: 1
