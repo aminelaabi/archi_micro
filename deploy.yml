@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blur-image-deployment
+spec:
+  selector:
+    matchLabels:
+      app: blur-image
+  replicas: 2 # nombre de réplicas de l'application
+  template:
+    metadata:
+      labels:
+        app: blur-image
+    spec:
+      containers:
+      - name: blur-image
+        image: blur-image:1.0 # nom et version de l'image de conteneur à utiliser
+        ports:
+        - containerPort: 8000 # numéro de port utilisé par l'application
